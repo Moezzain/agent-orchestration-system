@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+dist/
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+
+# Tool sandbox scratch space (created in Phase 2)
+sandbox-workspace/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Local working docs (not published)
+docs/
+CLAUDE.md

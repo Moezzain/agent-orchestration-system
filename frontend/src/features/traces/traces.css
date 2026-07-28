@@ -1,0 +1,79 @@
+.trace-panel {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.cost-report h3,
+.span-tree h3 {
+  margin: 0 0 var(--space-2);
+  font-size: 0.9rem;
+}
+
+.cost-total {
+  color: var(--accent);
+}
+
+.cost-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.cost-table th {
+  text-align: left;
+  color: var(--text-dim);
+  font-weight: 500;
+  padding: var(--space-1) var(--space-2);
+  border-bottom: 1px solid var(--border);
+}
+
+.cost-table td {
+  padding: var(--space-1) var(--space-2);
+  border-bottom: 1px solid var(--border);
+}
+
+.span-tree {
+  display: grid;
+  gap: 2px;
+}
+
+.span-row {
+  display: grid;
+  grid-template-columns: minmax(160px, auto) 1fr minmax(140px, 30%);
+  gap: var(--space-2);
+  align-items: center;
+  font-size: 0.82rem;
+  font-family: var(--font-mono);
+  padding: 2px var(--space-2);
+  border-radius: 3px;
+}
+
+.span-row:hover {
+  background: var(--bg-inset);
+}
+
+.span-attrs {
+  color: var(--text-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.span-duration {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.span-bar {
+  height: 6px;
+  border-radius: 3px;
+  background: color-mix(in oklch, var(--info) 55%, transparent);
+  min-width: 2px;
+}
+
+.span-ms {
+  color: var(--text-dim);
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}

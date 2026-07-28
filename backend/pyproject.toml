@@ -1,0 +1,71 @@
+[project]
+name = "orchestrator"
+version = "0.1.0"
+description = "Multi-agent orchestration system with tool use, memory, and human-in-the-loop"
+readme = "README.md"
+authors = [
+    { name = "Moez Babiker", email = "moezzain94@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "alembic>=1.18.5",
+    "anthropic>=0.120.2",
+    "asyncpg>=0.31.0",
+    "celery>=5.6.3",
+    "chromadb>=1.5.9",
+    "fastapi[standard]>=0.141.1",
+    "httpx>=0.28.1",
+    "langgraph>=1.2.11",
+    "langgraph-checkpoint-postgres>=3.1.2",
+    "mcp>=2.2.0",
+    "openai>=2.53.0",
+    "opentelemetry-sdk>=1.44.0",
+    "psycopg[binary]>=3.3.5",
+    "pydantic-settings>=2.14.2",
+    "redis>=8.1.0",
+    "sqlalchemy[asyncio]>=2.0.51",
+    "structlog>=26.1.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "pytest-asyncio>=0.25",
+    "ruff>=0.9",
+    "mypy>=1.14",
+    "asgi-lifespan>=2.1.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.11.32,<0.12.0"]
+build-backend = "uv_build"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort (import sorting)
+    "UP",  # pyupgrade (modern syntax)
+    "B",   # flake8-bugbear (likely bugs)
+    "SIM", # flake8-simplify
+    "TID", # flake8-tidy-imports
+]
+
+[tool.mypy]
+strict = true
+python_version = "3.12"
+mypy_path = "src"
+
+# celery ships neither stubs nor py.typed — the classic untyped dependency
+[[tool.mypy.overrides]]
+module = "celery.*"
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
